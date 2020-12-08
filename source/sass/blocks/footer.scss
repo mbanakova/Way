@@ -2,16 +2,38 @@
   @include desktop();
   display: flex;
   justify-content: space-between;
+  margin-bottom: 75px;
 
   @media (max-width: $desktop) {
     @include tablet();
     flex-wrap: wrap;
+    margin-bottom: 50px;
   }
 
   @media (max-width: $tablet) {
     @include mobile();
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: stretch;
+  }
+}
+
+.footer__next {
+  margin-left: 20px;
+  padding-right: 39px;
+  border-right: 1px solid $input;
+
+  @media (max-width: $desktop) {
+    margin-left: 0;
+    margin-bottom: 31px;
+    padding-right: 45px;
+  }
+
+  @media (max-width: $tablet) {
+    padding: 0 0 18px 0;
+    margin-bottom: 29px;
+    flex-grow: 1;
+    border-bottom: 1px solid $input;
+    border-right: none;
   }
 }
 
@@ -25,14 +47,32 @@
   }
 }
 
+.footer__contacts {
+  margin-left: -10px;
+
+  @media (max-width: $desktop) {
+    margin-left: 50px;
+    margin-right: auto;
+  }
+
+  @media (max-width: $tablet) {
+    margin: 0 0 15px 0;
+    flex-grow: 1;
+  }
+}
+
 .footer__mail,
 .footer__mail--short,
 .footer__phone {
   @include a();
+  @include font(14px, 17px, 400);
   position: relative;
   color: $accent;
   text-decoration: underline;
   text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
   @media (max-width: $desktop) {
     @include font(16px, 32px, 400);
@@ -40,6 +80,7 @@
 }
 
 .footer__mail {
+  margin-bottom: 15px;
 
   @media (max-width: $desktop) {
     display: none;
@@ -50,7 +91,49 @@
   display: none;
 
   @media (max-width: $desktop) {
+    margin-bottom: 5px;
     display: block;
+  }
+
+  @media (max-width: $tablet) {
+    margin-bottom: 5px;
+    display: block;
+    text-align: center;
+  }
+}
+
+.footer__phone {
+  @include font(16px, 32px, 400);
+
+  @media (max-width: $tablet) {
+    text-align: center;
+    margin-right: 12px;
+  }
+}
+
+.footer__icon {
+
+  &--envelope {
+    margin-right: 13px;
+  }
+
+  &--phone {
+    margin-right: 28px;
+    margin-left: 8px;
+  }
+
+  @media (max-width: $desktop) {
+
+    &--envelope {
+      width: 26px;
+      height: 20px;
+      margin-right: 15px;
+    }
+
+    &--phone {
+      margin-right: 17px;
+      margin-left: 8px;
+    }
   }
 }
 
@@ -65,9 +148,23 @@
 }
 
 .footer__corporate {
+  position: relative;
   width: 320px;
+
+  &::before {
+    position: absolute;
+    content: "";
+    width: 1px;
+    height: 100%;
+    left: -48px;
+    top: 0;
+    background-color: $input;
+  }
 
   @media (max-width: $desktop) {
     flex-grow: 1;
+    padding-top: 28px;
+    text-align: center;
+    border-top: 1px solid $input;
   }
 }

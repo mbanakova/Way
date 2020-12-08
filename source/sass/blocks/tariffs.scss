@@ -33,10 +33,6 @@
     margin-right: 0;
   }
 
-  &--accent {
-    border: 3px solid $accent;
-  }
-
   @media (max-width: $desktop) {
     justify-content: space-between;
     width: 288px;
@@ -63,10 +59,6 @@
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-
-  &--accent {
-    color: $accent;
-  }
 
   @media (max-width: $desktop) {
     margin-bottom: 11px;
@@ -124,14 +116,6 @@
     }
   }
 
-  &--accent {
-    border-bottom-color: $accent;
-
-    &::after {
-      background-color: $accent;
-    }
-  }
-
   @media (max-width: $tablet) {
     margin-bottom: 20px;
   }
@@ -163,11 +147,6 @@
     border-left: 2px solid $accent;
     border-bottom: 2px solid $accent;
     transform: rotate(-45deg);
-  }
-
-  &--accent::before {
-    border-left-color: $dark;
-    border-bottom-color: $dark;
   }
 
   @media (max-width: $desktop) {
@@ -203,5 +182,28 @@
     &:active {
       background-color: $accent-hover;
     }
+  }
+}
+
+.tariffs__item:hover {
+  border-color: $accent;
+  // outline: 2px solid $accent;
+  // outline-offset: -4px;
+  transition: $tr;
+
+  & .tariffs__text::after {
+    background-color: $accent;
+    transition: $tr;
+  }
+
+  & .tariffs__title-wrap {
+    color: $accent;
+    transition: $tr;
+  }
+
+  & .tariffs__point::before {
+    border-left-color: $dark;
+    border-bottom-color: $dark;
+    transition: $tr;
   }
 }

@@ -8,6 +8,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  margin-bottom: 170px;
 
   @media (min-resolution: $extra) {
     background-image: url("../img/form-desk@2.jpg");
@@ -18,6 +19,7 @@
     background-image: url("../img/form-tab.jpg");
     background-position: 0 50%;
     justify-content: center;
+    margin-bottom: 80px;
 
     @media (min-resolution: $extra) {
       background-image: url("../img/form-tab@2.jpg");
@@ -26,10 +28,13 @@
 
   @media (max-width: $tablet) {
     @include mobile();
+    min-height: auto;
     background-image: none;
     background-color: $form;
     display: block;
-    min-height: 400px;
+    margin-bottom: 70px;
+    padding-top: 50px;
+    padding-bottom: 55px;
   }
 }
 
@@ -38,8 +43,9 @@
 }
 
 .form__form {
+  width: 656px;
   padding: 50px;
-  margin-right: 70px;
+  margin-right: -20px;
   background-color: $white;
   border-radius: 5px;
   box-shadow: 0px 4px 30px rgba($shadow, 0.1);
@@ -48,24 +54,41 @@
   justify-content: space-between;
   align-items: center;
 
+  @media (max-width: $desktop) {
+    margin: 0;
+    padding-bottom: 55px;
+  }
+
   @media (max-width: $tablet) {
+    padding-bottom: 0;
+    width: auto;
     padding: 0;
     background-color: transparent;
     box-shadow: none;
+    justify-content: flex-start;
     align-items: stretch;
+    text-align: center;
   }
 }
 
 .form__title {
   @include fields();
   @include font(25px, 32px, 600);
-  margin-bottom: 15px;
+  margin-bottom: 14px;
+
+  @media (max-width: $tablet) {
+    margin-bottom: 20px;
+  }
 }
 
 .form__text {
   @include fields();
   @include font(16px, 24px, 400);
-  margin-bottom: 24px;
+  margin-bottom: 21px;
+
+  @media (max-width: $tablet) {
+    margin-bottom: 20px;
+  }
 }
 
 .form__inputs {
@@ -73,24 +96,89 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 25px;
+  position: relative;
+
+  &::before {
+    @include font(14px, 21px, 400);
+    position: absolute;
+    content: "*";
+    width: 30px;
+    height: 20px;
+    top: 30%;
+    left: 15px;
+    color: $accent;
+    transform: translateY(-30%);
+    z-index: 10;
+  }
+
+  &::after {
+    @include font(14px, 21px, 400);
+    position: absolute;
+    content: "+7";
+    width: 30px;
+    height: 20px;
+    top: 50%;
+    left: 25px;
+    color: $navy;
+    transform: translateY(-50%);
+    z-index: 10;
+  }
+
+  @media (max-width: $desktop) {
+    margin-bottom: 20px;
+  }
 
   @media (max-width: $tablet) {
-    flex-wrap: wrap;
+    @include font(14px, 17px, 400);
+    flex-direction: column;
+    align-items: stretch;
+    margin-bottom: 16px;
+
+    &::before {
+      top: 6px;
+      left: 3px;
+      transform: translateY(0);
+    }
+
+    &::after {
+      top: 15px;
+      left: 20px;
+      transform: translateY(0);
+    }
   }
 }
 
 .form__input {
+  @include font(14px, 21px, 400);
+  max-width: 269px;
   align-self: stretch;
   flex-grow: 1;
-  margin-right: 20px;
+  margin-right: 19px;
   font-family: $font;
+  position: relative;
+  border: 1px solid $input;
+  padding: 15px 15px;
+
+  &::placeholder {
+    opacity: 1;
+  }
 
   &:last-of-type {
     margin-right: 0;
   }
 
+  &--phone {
+    padding-left: 50px;
+  }
+
   @media (max-width: $tablet) {
     margin-right: 0;
+    max-width: 100%;
+    margin-bottom: 20px;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
   }
 }
 

@@ -18,12 +18,20 @@
   @media (max-width: $tablet) {
     margin: 0;
     width: 50%;
+    margin-bottom: 22px;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
   }
 }
 
 .next__item {
   margin-bottom: 10px;
-  min-width: 134px;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
 }
 
 .next__link {

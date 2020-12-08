@@ -51,6 +51,22 @@ document.querySelectorAll('.tabs__country').forEach((item) =>
     document.getElementById(id).classList.add('tabs__info--active')
   }));
 
+// Local Storage
+var submitForm = document.querySelector('.purchase__submit');
+var userPhone = document.querySelector('#user-phone');
+var userEmail = document.querySelector('#user-email');
+var isStorageSupport = true;
+var storagePhone = '';
+var storageEmail = '';
+
+try {
+  storagePhone = localStorage.getItem('phone');
+  storageEmail = localStorage.getItem('email');
+} catch (err) {
+  isStorageSupport = false;
+  console.log(666)
+}
+
 // Купить тур
 
 var trigger = document.querySelectorAll('.tariffs__button');
@@ -60,6 +76,13 @@ trigger.forEach((item) =>
   item.addEventListener('click', function (elem) {
     elem.preventDefault();
     purchase.classList.add('body__modal--active');
+    if (storagePhone && storageEmail) {
+        userPhone.value = storagePhone;
+        userEmail.value = storageEmail;
+        userPhone.focus();
+    } else {
+      userPhone.focus();
+    }
 }));
 
 var closePurchase = document.querySelector('.purchase__close');
@@ -68,6 +91,15 @@ closePurchase.addEventListener('click', function (elem) {
   elem.preventDefault();
   purchase.classList.remove('body__modal--active');
 })
+
+window.addEventListener('keydown', function (evt) {
+  if (evt.key === `Escape`) {
+    if (purchase.classList.contains('body__modal--active')) {
+      evt.preventDefault();
+      purchase.classList.remove('body__modal--active');
+    }
+  }
+});
 
 // "Отзыв"
 var success = document.querySelector('.success');
@@ -83,3 +115,12 @@ closeSuccess.addEventListener('click', function (elem) {
   elem.preventDefault();
   success.classList.remove('body__modal--active');
 })
+
+window.addEventListener('keydown', function (evt) {
+  if (evt.key === `Escape`) {
+    if (success.classList.contains('body__modal--active')) {
+      evt.preventDefault();
+      success.classList.remove('body__modal--active');
+    }
+  }
+});

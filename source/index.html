@@ -349,17 +349,17 @@
         </div>
       </div>
       <ul class="price__tariffs tariffs">
-        <li class="tariffs__item tariffs__item--accent">
-          <div class="tariffs__title-wrap tariffs__title-wrap--accent">
+        <li class="tariffs__item">
+          <div class="tariffs__title-wrap">
             <h3 class="tariffs__title">Комплексный</h3>
             <span class="tariffs__dollar">$1999</span>
           </div>
-          <p class="tariffs__text tariffs__text--accent">Ознакомьтесь с перечнем того, что входит в данный пакет </p>
+          <p class="tariffs__text">Ознакомьтесь с перечнем того, что входит в данный пакет </p>
           <ul class="tariffs__points">
-            <li class="tariffs__point tariffs__point--accent">Разработанный маршрут с гидом группы</li>
-            <li class="tariffs__point tariffs__point--accent">Перелет, трансфер и проживание в отелях</li>
-            <li class="tariffs__point tariffs__point--accent">Завтраки, ужины в отелях и ланчи на природе</li>
-            <li class="tariffs__point tariffs__point--accent">Экскурсии по удивительно красивым местам Европы</li>
+            <li class="tariffs__point">Разработанный маршрут с гидом группы</li>
+            <li class="tariffs__point">Перелет, трансфер и проживание в отелях</li>
+            <li class="tariffs__point">Завтраки, ужины в отелях и ланчи на природе</li>
+            <li class="tariffs__point">Экскурсии по удивительно красивым местам Европы</li>
           </ul>
           <button class="tariffs__button" type="button">Купить тур сейчас</button>
         </li>
@@ -386,9 +386,9 @@
         <h3 class="form__title">У Вас остались вопросы?</h3>
         <p class="form__text">Оставьте свой номер или e-mail и мы свяжемся с Вами</p>
         <div class="form__inputs">
-          <input class="form__input" type="tel" id="phone">
+          <input class="form__input form__input--phone" type="tel" id="phone" placeholder="Введите 10 цифр номера" required>
           <label for="phone"></label>
-          <input class="form__input" type="email" id="email">
+          <input class="form__input" type="email" id="email" placeholder="E-mail" required>
           <label for="email"></label>
         </div>
         <button class="form__submit" type="submit">Отправить</button>
@@ -455,15 +455,15 @@
     <div class="footer__contacts">
       <h3 class="footer__title">Наши контакты</h3>
       <a class="footer__mail" href="mailto:puteshestviemechta@gmail.ru">
-        <svg width="26" height="20" stroke="#d7d9df">
+        <svg class="footer__icon footer__icon--envelope" width="26" height="20" stroke="#d7d9df">
           <use xlink:href="#icon-envelope"></use>
         </svg>puteshestviemechta@gmail.ru</a>
       <a class="footer__mail footer__mail--short" href="mailto:puteshestviemechta@gmail.ru">
-        <svg width="17" height="24" stroke="#d7d9df">
+        <svg class="footer__icon footer__icon--envelope" width="17" height="24" stroke="#d7d9df">
           <use xlink:href="#icon-envelope"></use>
         </svg>Почта</a>
       <a class="footer__phone" href="tel:849978468446">
-        <svg width="17" height="24" stroke="#d7d9df">
+        <svg class="footer__icon footer__icon--phone" width="17" height="24" stroke="#d7d9df">
           <use xlink:href="#icon-phone"></use>
         </svg>+7 (499) -784-684-46</a>
     </div>
@@ -478,7 +478,7 @@
   </footer>
 
   <section class="body__modal success">
-    <h2 class="section-title visually-hidden">Модальное окно отправленной формы</h2>
+    <h2 class="visually-hidden">Модальное окно отправленной формы</h2>
     <div class="success__content">
       <button class="success__close" type="button">Закрыть</button>
       <p class="success__text">Форма успешно отправлена, спасибо! :)</p>
@@ -486,17 +486,17 @@
   </section>
 
   <section class="body__modal purchase">
-    <h2 class="section-title visually-hidden">Модальное окно покупки тура</h2>
+    <h2 class="visually-hidden">Модальное окно покупки тура</h2>
     <div class="purchase__content">
       <button class="purchase__close" type="button">Закрыть</button>
       <form class="purchase__form" action="https://echo.htmlacademy.ru" method="POST">
         <h3 class="purchase__title">Купить тур</h3>
         <div class="purchase__wrap">
           <input class="purchase__input purchase__input--phone" type="tel" name="user-phone" id="user-phone"
-            placeholder="Введите 10 цифр номера">
+            placeholder="Введите 10 цифр номера" required>
           <label class="purchase__label visually-hidden" for="user-phone">Телефон</label>
         </div>
-        <input class="purchase__input" type="email" name="user-email" id="user-email" placeholder="E-mail">
+        <input class="purchase__input" type="email" name="user-email" id="user-email" placeholder="E-mail" required>
         <label class="purchase__label visually-hidden" for="user-email">Почта</label>
         <button class="purchase__submit" type="submit">Отправить</button>
       </form>
