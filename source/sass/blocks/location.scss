@@ -1,0 +1,239 @@
+.location {
+  @include desktop();
+  padding-left: 25px;
+  padding-right: 5px;
+  margin-bottom: 96px;
+  color: $navy;
+
+  @media (max-width: $desktop) {
+    @include tablet();
+    margin-bottom: 108px;
+  }
+
+  @media (max-width: $tablet) {
+    @include mobile();
+    margin-bottom: 39px;
+  }
+}
+
+.location__wrapper {
+  width: 350px;
+  margin-right: auto;
+  margin-bottom: 56px;
+
+  @media (max-width: $desktop) {
+    width: auto;
+    margin: 0;
+  }
+}
+
+.location__text {
+  @include fields();
+  @include font(16px, 28px, 400);
+  color: rgba($navy, 0.7);
+  letter-spacing: -0.466667px;
+
+  @media (max-width: $desktop) {
+    width: 340px;
+    margin: 0 auto 38px;
+    text-align: center;
+  }
+
+  @media (max-width: $tablet) {
+    width: auto;
+    margin-bottom: 20px;
+  }
+}
+
+.location__list {
+  @include ul();
+  margin: 0 -30px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  @media (max-width: $desktop) {
+    margin: 0 auto;
+  }
+
+  @media (max-width: $tablet) {
+    margin: 0 auto;
+  }
+}
+
+.location__item {
+  position: relative;
+  width: 350px;
+  height: 430px;
+  margin: 0 30px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  &:nth-of-type(3n):not(:last-of-type) {
+    margin-bottom: 100px;
+  }
+
+  &--greece {
+    background-image: url("../img/greece-desk.jpg");
+
+    @media (min-resolution: $extra) {
+      background-image: url("../img/greece-desk@2.jpg");
+    }
+  }
+
+  &--albania {
+    background-image: url("../img/albania-desk.jpg");
+
+    @media (min-resolution: $extra) {
+      background-image: url("../img/albania-desk@2.jpg");
+    }
+  }
+
+  &--makedonia {
+    background-image: url("../img/makedonia-desk.jpg");
+
+    @media (min-resolution: $extra) {
+      background-image: url("../img/makedonia-desk@2.jpg");
+    }
+  }
+
+  &--chernogoria {
+    background-image: url("../img/chernogoria-desk.jpg");
+
+    @media (min-resolution: $extra) {
+      background-image: url("../img/chernogoria-desk@2.jpg");
+    }
+  }
+
+  &--croatia {
+    background-image: url("../img/croatia-desk.jpg");
+
+    @media (min-resolution: $extra) {
+      background-image: url("../img/croatia-desk@2.jpg");
+    }
+  }
+
+  &:hover,
+  &:focus {
+    transition: $tr;
+
+    &::after {
+      position: absolute;
+      content: "";
+      width: 350px;
+      height: 430px;
+      top: 0;
+      left: 0;
+      background-color: rgba($dark, 0.6);
+      z-index: 10;
+
+      @media (max-width: $desktop) {
+        display: none;
+      }
+    }
+  }
+
+  @media (max-width: $desktop) {
+    width: 288px;
+    height: 425px;
+    margin: 0 15px;
+
+    &:nth-of-type(3n):not(:last-of-type) {
+      margin-bottom: 0;
+    }
+
+    &:nth-of-type(2n):not(:last-of-type) {
+      margin-bottom: 20px;
+    }
+
+    &--greece {
+      background-image: url("../img/greece-tab.jpg");
+
+      @media (min-resolution: $extra) {
+        background-image: url("../img/greece-tab@2.jpg");
+      }
+    }
+
+    &--albania {
+      background-image: url("../img/albania-tab.jpg");
+
+      @media (min-resolution: $extra) {
+        background-image: url("../img/albania-tab@2.jpg");
+      }
+    }
+
+    &--makedonia {
+      background-image: url("../img/makedonia-tab.jpg");
+
+      @media (min-resolution: $extra) {
+        background-image: url("../img/makedonia-tab@2.jpg");
+      }
+    }
+
+    &--chernogoria {
+      background-image: url("../img/chernogoria-tab.jpg");
+
+      @media (min-resolution: $extra) {
+        background-image: url("../img/chernogoria-tab@2.jpg");
+      }
+    }
+
+    &--croatia {
+      background-image: url("../img/croatia-tab.jpg");
+
+      @media (min-resolution: $extra) {
+        background-image: url("../img/croatia-tab@2.jpg");
+      }
+    }
+  }
+
+  @media (max-width: $tablet) {
+    margin: 0 auto 35px;
+
+    &:nth-of-type(2n):not(:last-of-type) {
+      margin-bottom: 35px;
+    }
+
+    &:nth-of-type(3n):not(:last-of-type) {
+      margin-bottom: 35px;
+    }
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.location__link {
+  @include a();
+  @include font(14px, 17px, 500);
+  display: none;
+  margin-bottom: 112px;
+  text-transform: uppercase;
+  padding: 30px 25px;
+  border: 1px solid rgba($white, 1);
+  color: $white;
+}
+
+.location__item:hover .location__link {
+  display: block;
+  z-index: 20;
+  transition: $tr;
+
+  @media (max-width: $desktop) {
+    display: none;
+  }
+}
+
+.location__country {
+  @include font(24px, 29px, 500);
+  min-width: 215px;
+  padding: 17px 30px;
+  background-color: $white;
+  text-align: center;
+}

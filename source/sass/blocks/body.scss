@@ -1,0 +1,35 @@
+.body {
+  @include font();
+  @include fields();
+  position: relative;
+  margin: 0 auto;
+  color: $dark;
+  font-family: $font;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.body,
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.body__modal {
+  display: none;
+
+  &--active {
+    display: block;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    outline: 1000px solid rgba($dark, 0.5); // Да, это кошмар
+    z-index: 9999;
+  }
+}

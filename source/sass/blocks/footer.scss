@@ -1,0 +1,73 @@
+.footer {
+  @include desktop();
+  display: flex;
+  justify-content: space-between;
+
+  @media (max-width: $desktop) {
+    @include tablet();
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: $tablet) {
+    @include mobile();
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+.footer__title {
+  @include fields();
+  @include font(18px, 32px, 600);
+  margin-bottom: 20px;
+
+    @media (max-width: $tablet) {
+    text-align: center;
+  }
+}
+
+.footer__mail,
+.footer__mail--short,
+.footer__phone {
+  @include a();
+  position: relative;
+  color: $accent;
+  text-decoration: underline;
+  text-align: left;
+
+  @media (max-width: $desktop) {
+    @include font(16px, 32px, 400);
+  }
+}
+
+.footer__mail {
+
+  @media (max-width: $desktop) {
+    display: none;
+  }
+}
+
+.footer__mail--short {
+  display: none;
+
+  @media (max-width: $desktop) {
+    display: block;
+  }
+}
+
+.footer__text {
+  @include fields();
+  @include font(14px, 24px, 400);
+  color: rgba($dark, 0.5);
+
+  @media (max-width: $desktop) {
+    text-align: center;
+  }
+}
+
+.footer__corporate {
+  width: 320px;
+
+  @media (max-width: $desktop) {
+    flex-grow: 1;
+  }
+}

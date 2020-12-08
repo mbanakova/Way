@@ -1,0 +1,59 @@
+.success__content {
+  @include font(25px, 170%, 500);
+  margin: 0 auto;
+  background-color: $form;
+  width: 728px;
+  height: 444px;
+  color: $nojs;
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: $tablet) {
+    width: 288px;
+    height: 536px;
+  }
+}
+
+.success__close {
+  margin-left: auto;
+  position: relative;
+  background-color: transparent;
+  font-size: 0;
+  border: none;
+  padding: 0;
+  margin: 0;
+
+  &::before {
+    position: absolute;
+    content: "";
+    width: 32px;
+    height: 2px;
+    top: 20px;
+    right: -10px;
+    background-color: rgba($dark, 0.2);
+    transform: translate(-50%) rotate(45deg);
+  }
+
+  &::after {
+    position: absolute;
+    content: "";
+    width: 2px;
+    height: 32px;
+    top: 20px;
+    right: 20px;
+    background-color: rgba($dark, 0.2);
+    transform: translateY(-45%) rotate(45deg);
+  }
+}
+
+.success__text {
+  @include fields();
+  width: 399px;
+  margin: auto;
+  text-align: center;
+
+  @media (max-width: $tablet) {
+    @include font(16px, 170%, 500);
+    width: 240px;
+  }
+}

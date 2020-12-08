@@ -1,0 +1,166 @@
+.purchase {
+  @include font(25px, 170%, 500);
+  margin: 0 auto;
+  background-color: $form;
+  background-image: url("../img/purchase-desk.jpg");
+  background-repeat: no-repeat;
+  background-position: top left;
+  width: 728px;
+  height: 444px;
+  color: $nojs;
+
+  @media (min-resolution: $extra) {
+    background-image: url("../img/purchase-desk@2.jpg");
+    background-size: contain;
+  }
+
+  @media (max-width: $tablet) {
+    background-image: none;
+    width: 100vw;
+    height: 100vh;
+    margin-bottom: 0;
+  }
+}
+
+.purchase__content {
+  width: 390px;
+  height: 100%;
+  margin: auto;
+  margin-right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media (max-width: $tablet) {
+    @include mobile();
+  }
+}
+
+.purchase__close {
+  margin-left: auto;
+  position: relative;
+  background-color: transparent;
+  font-size: 0;
+  border: none;
+  padding: 0;
+  margin: 0;
+  align-self: flex-end;
+
+  &::before {
+    position: absolute;
+    content: "";
+    width: 32px;
+    height: 2px;
+    top: 20px;
+    right: -10px;
+    background-color: rgba($dark, 0.2);
+    transform: translate(-50%) rotate(45deg);
+
+    @media (max-width: $tablet) {
+      right: -25px;
+    }
+  }
+
+  &::after {
+    position: absolute;
+    content: "";
+    width: 2px;
+    height: 32px;
+    top: 20px;
+    right: 20px;
+    background-color: rgba($dark, 0.2);
+    transform: translateY(-45%) rotate(45deg);
+
+    @media (max-width: $tablet) {
+      right: 5px;
+    }
+  }
+}
+
+.purchase__form {
+  margin: auto;
+  width: 270px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  color: $navy;
+
+  @media (max-width: $tablet) {
+    width: 100%;
+    margin-bottom: 150px;
+  }
+}
+
+.purchase__title {
+  @include fields();
+  @include font(25px, 170%, 600);
+  margin-bottom: 50px;
+}
+
+.purchase__wrap {
+  position: relative;
+
+  &::before {
+    @include font(14px, 21px, 400);
+    position: absolute;
+    content: "*";
+    width: 30px;
+    height: 20px;
+    top: 50%;
+    left: 5px;
+    color: $accent;
+    transform: translateY(-100%);
+    z-index: 10;
+  }
+
+  &::after {
+    @include font(14px, 21px, 400);
+    position: absolute;
+    content: "+7";
+    width: 30px;
+    height: 20px;
+    top: 50%;
+    left: 25px;
+    color: $navy;
+    transform: translateY(-100%);
+    z-index: 10;
+  }
+}
+
+.purchase__input {
+  @include font(14px, 21px, 400);
+  font-family: $font;
+  width: 100%;
+  position: relative;
+  border: 1px solid $input;
+  padding: 15px;
+  margin-bottom: 20px;
+
+  &::placeholder {
+    opacity: 1;
+  }
+
+  &--phone {
+    padding-left: 60px;
+  }
+}
+
+.purchase__submit {
+  @include button();
+  @include font(12px, 21px, 700);
+  padding: 15px 40px;
+
+  &:hover {
+    background-color: $accent-hover;
+    transition: $tr;
+  }
+
+  &:focus,
+  &:active {
+    background-color: $accent-hover;
+  }
+
+  @media (max-width: $tablet) {
+    max-width: 288px;
+  }
+}

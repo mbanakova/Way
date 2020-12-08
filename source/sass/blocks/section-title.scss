@@ -1,0 +1,56 @@
+.section-title {
+  @include fields();
+  @include font(55px, 80px, 600);
+  margin-bottom: 64px;
+  position: relative;
+  color: $navy;
+  letter-spacing: -1.25px;
+
+  &::after {
+    position: absolute;
+    content: "";
+    left: 0;
+    bottom: -32px;
+    height: 4px;
+    width: 228px;
+    background-color: $accent;
+    border-radius: 2px;
+  }
+
+  @media (max-width: $desktop) {
+    @include font(30px, 150%, 600);
+    margin-bottom: 22px;
+    text-align: center;
+    letter-spacing: normal;
+
+    &::after {
+      display: none;
+    }
+  }
+
+  @media (max-width: $tablet) {
+    @include font(24px, 36px, 600);
+    margin-bottom: 19px;
+  }
+
+  &--white {
+    color: $white;
+    margin-bottom: 28px;
+    letter-spacing: -1.10667px;
+
+    &::after {
+      display: none;
+    }
+
+    @media (max-width: $desktop) {
+      letter-spacing: normal;
+      margin-bottom: 16px;
+    }
+
+    @media (max-width: $tablet) {
+      text-align: center;
+      padding-top: 22px;
+      margin-bottom: 102px;
+    }
+  }
+}

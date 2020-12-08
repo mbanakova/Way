@@ -1,0 +1,248 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &--nojs {
+    @media (max-width: $desktop) {
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start
+    }
+  }
+
+  &--js {
+    @media (max-width: $desktop) {
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-end;
+    }
+  }
+}
+
+.nav__logo {
+  @include a();
+  @include font(10px, 10px, 500);
+
+  &--js {
+    @media (max-width: $desktop) {
+      display: none;
+    }
+  }
+}
+
+.nav__logo-svg {
+  @media (max-width: $desktop) {
+    width: 44px;
+    height: 17px;
+    margin-top: 4px;
+  }
+}
+
+.nav__list {
+  @include ul();
+  margin: auto 60px auto auto;
+  display: flex;
+
+  @media (max-width: $desktop) {
+    display: none;
+  }
+
+  &--js {
+    @media (max-width: $desktop) {
+      display: flex;
+      margin: 0;
+      width: 100%;
+      flex-wrap: wrap;
+      justify-content: stretch;
+      order: 1;
+      flex-direction: column;
+    }
+  }
+
+  &--nojs {
+    @media (max-width: $desktop) {
+      margin: 0;
+      width: 100%;
+      flex-wrap: wrap;
+      justify-content: stretch;
+      order: 1;
+      flex-direction: column;
+    }
+  }
+}
+
+.nav__item {
+  margin-right: 40px;
+  position: relative;
+
+  &:last-of-type {
+    margin-right: 0;
+  }
+
+  &:hover {
+    color: $accent;
+    transition: $tr;
+
+    &::after {
+      border-right-color: $accent;
+      border-bottom-color: $accent;
+    }
+  }
+
+    @media (max-width: $desktop) {
+      margin: 0 0 30px 0;
+      background-color: $form;
+      padding: 17px 60px 17px 17px;
+      text-align-last: left;
+      display: flex;
+      align-items: center;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+  }
+
+  &--nojs {
+    @media (max-width: $desktop) {
+      margin: 0 0 4px 0;
+      background-color: $form;
+      padding: 17px 60px 17px 17px;
+      text-align-last: left;
+      display: flex;
+      align-items: center;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  @media (max-width: $desktop) {
+    color: $nojs;
+
+    &::after {
+      position: absolute;
+      content: "";
+      width: 6px;
+      height: 6px;
+      top: 50%;
+      right: 24px;
+      border: 1px solid transparent;
+      border-right-color: rgba($navy, 0.5);
+      border-bottom-color: rgba($navy, 0.5);
+      transform: rotate(-45deg) translateY(-50%);
+    }
+  }
+}
+
+.nav__link {
+  @include a();
+  @include font(14px, 17px, 500);
+}
+
+.nav__phone {
+  @include a();
+  @include font(18px, 32px, 400);
+  text-decoration: underline;
+  display: flex;
+  align-items: center;
+
+  &:hover {
+    color: $accent;
+    transition: $tr;
+  }
+
+  &:active {
+    color: $accent-hover;
+    transition: $tr;
+  }
+
+  @media (max-width: $desktop) {
+    display: none;
+  }
+}
+
+.nav__phone:hover .nav__icon {
+  stroke: $accent;
+  transition: $tr;
+}
+
+.nav__phone:active .nav__icon {
+  stroke: $accent-hover;
+  transition: $tr;
+}
+
+.nav__icon {
+  margin-right: 15px;
+}
+
+.nav__burger {
+  display: none;
+
+  @media (max-width: $desktop) {
+    position: relative;
+    display: block;
+    width: 72px;
+    height: 50px;
+    background-color: $accent;
+    color: $white;
+    border: none;
+    cursor: pointer;
+
+    &::before {
+      position: absolute;
+      content: "";
+      width: 22px;
+      height: 1px;
+      top: 17px;
+      left: 25px;
+      background-color: $white;
+      box-shadow: 0 6px 0 0 $white, 0 13px 0 0 $white;
+      transform: rotate(0);
+    }
+  }
+
+  @media (max-width: $tablet) {
+    width: 50px;
+
+    &::before {
+      left: 13px;
+    }
+  }
+
+  &--cross {
+    @media (max-width: $desktop) {
+      background-color: transparent;
+      margin-bottom: 82px;
+
+      &::before {
+        position: absolute;
+        content: "";
+        width: 32px;
+        height: 2px;
+        top: 50%;
+        left: 50%;
+        background-color: rgba($dark, 0.2);
+        transform: translate(-50%) rotate(45deg);
+      }
+
+      &::after {
+        position: absolute;
+        content: "";
+        width: 2px;
+        height: 32px;
+        top: 50%;
+        left: 50%;
+        background-color: rgba($dark, 0.2);
+        transform: translateY(-45%) rotate(45deg);
+      }
+    }
+  }
+
+  &--nojs {
+    @media (max-width: $desktop) {
+      display: none;
+    }
+  }
+}

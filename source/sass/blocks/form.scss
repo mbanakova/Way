@@ -1,0 +1,115 @@
+.form {
+  @include desktop();
+  background-image: url("../img/form-desk.jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 35px 0;
+  min-height: 455px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  @media (min-resolution: $extra) {
+    background-image: url("../img/form-desk@2.jpg");
+  }
+
+  @media (max-width: $desktop) {
+    @include tablet();
+    background-image: url("../img/form-tab.jpg");
+    background-position: 0 50%;
+    justify-content: center;
+
+    @media (min-resolution: $extra) {
+      background-image: url("../img/form-tab@2.jpg");
+    }
+  }
+
+  @media (max-width: $tablet) {
+    @include mobile();
+    background-image: none;
+    background-color: $form;
+    display: block;
+    min-height: 400px;
+  }
+}
+
+.form__section-title {
+  margin: 0;
+}
+
+.form__form {
+  padding: 50px;
+  margin-right: 70px;
+  background-color: $white;
+  border-radius: 5px;
+  box-shadow: 0px 4px 30px rgba($shadow, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  @media (max-width: $tablet) {
+    padding: 0;
+    background-color: transparent;
+    box-shadow: none;
+    align-items: stretch;
+  }
+}
+
+.form__title {
+  @include fields();
+  @include font(25px, 32px, 600);
+  margin-bottom: 15px;
+}
+
+.form__text {
+  @include fields();
+  @include font(16px, 24px, 400);
+  margin-bottom: 24px;
+}
+
+.form__inputs {
+  align-self: stretch;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+
+  @media (max-width: $tablet) {
+    flex-wrap: wrap;
+  }
+}
+
+.form__input {
+  align-self: stretch;
+  flex-grow: 1;
+  margin-right: 20px;
+  font-family: $font;
+
+  &:last-of-type {
+    margin-right: 0;
+  }
+
+  @media (max-width: $tablet) {
+    margin-right: 0;
+  }
+}
+
+.form__submit {
+  @include button();
+  display: block;
+  padding: 15px 40px;
+
+  &:hover {
+    background-color: $accent-hover;
+    transition: $tr;
+  }
+
+  @media (max-width: $tablet) {
+    max-width: 288px;
+
+    &:focus,
+    &:active {
+      background-color: $accent-hover;
+    }
+  }
+}

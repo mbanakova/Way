@@ -1,0 +1,62 @@
+@mixin font($size: 14px, $height: 28px, $weight: 400) {
+  font-size: $size;
+  line-height: $height;
+  font-weight: $weight;
+}
+
+@mixin ul() {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@mixin a() {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  text-align: center;
+}
+
+@mixin fields() {
+  margin: 0;
+  padding: 0;
+}
+
+@mixin mobile() {
+  width: 320px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+@mixin tablet() {
+  width: 768px;
+  margin: 0 auto;
+  padding: 0 21px;
+}
+
+@mixin desktop() {
+  width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+@mixin button() {
+  @include font(12px, 15px, 700);
+  letter-spacing: 2px;
+  padding: 0;
+  border: none;
+  font-family: $font;
+  color: $white;
+  background-color: $accent;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  @media (max-width: $desktop) {
+    @include font(10px, 12px, 500);
+    width: 250px;
+  }
+
+  @media (max-width: $tablet) {
+    width: 288px;
+  }
+}

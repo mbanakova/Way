@@ -1,0 +1,235 @@
+.tabs {
+  @include desktop();
+  position: relative;
+  padding-left: 24px;
+  padding-right: 6px;
+  padding-bottom: 231px;
+
+  @media (max-width: $desktop) {
+    @include tablet();
+    margin-bottom: 104px;
+  }
+
+  @media (max-width: $tablet) {
+    @include mobile();
+    margin-bottom: 102px;
+  }
+}
+
+.tabs__section-title {
+  display: none;
+}
+
+.tabs__background {
+  position: absolute;
+  overflow: visible;
+  top: 67px;
+  left: -56px;
+  width: 1443px;
+  height: 1089px;
+  z-index: -1;
+
+  @media (max-width: $desktop) {
+    display: none;
+  }
+}
+
+.tabs__left-container {
+  width: 470px;
+  margin-top: 10px;
+
+  @media (max-width: $desktop) {
+    width: auto;
+    margin: 0 auto 28px;
+  }
+
+  @media (max-width: $tablet) {
+    margin: 0 auto 51px;
+  }
+}
+
+.tabs__right-container {
+  position: relative;
+}
+
+.tabs__links {
+  @include ul();
+  position: relative;
+  display: flex;
+  width: fit-content;
+  padding-bottom: 15px;
+  margin-bottom: 79px;
+
+  &::after {
+    position: absolute;
+    content: "";
+    top: 39px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: rgba($navy, 0.3);
+  }
+
+  @media (max-width: $desktop) {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    width: auto;
+    margin-bottom: -12px;
+    margin-left: 15px;
+    padding-bottom: 60px;
+  }
+
+  @media (max-width: $tablet) {
+    margin-bottom: -12px;
+    margin-left: 0;
+    padding-bottom: 52px;
+  }
+}
+
+.tabs__item {
+  margin-right: 96px;
+
+  &:last-of-type {
+    margin-right: 0;
+  }
+
+  @media (max-width: $desktop) {
+    margin-right: 98px;
+  }
+}
+
+.tabs__country {
+  @include a();
+  @include font(20px, 24px, 500);
+  margin: 0;
+  color: rgba($navy, 0.3);
+  cursor: pointer;
+
+  &:hover {
+    color: $accent;
+    transition: $tr;
+  }
+
+  &:active {
+    color: $accent-hover;
+    transition: $tr;
+  }
+}
+
+.tabs__content {
+  @include ul();
+}
+
+.tabs__info {
+  display: none;
+
+  &--active {
+    display: flex;
+
+    @media (max-width: $desktop) {
+      display: block;
+    }
+  }
+}
+
+.tabs__title {
+  @include font(55px, 90px, 600);
+  margin-bottom: 48px;
+
+  &::after {
+    width: 175px;
+    height: 3px;
+    bottom: -17px;
+  }
+
+  @media (max-width: $desktop) {
+    @include font(30px, 150%, 600);
+    background-color: $white;
+    margin-bottom: 23px;
+  }
+
+  @media (max-width: $tablet) {
+    @include font(24px, 150%, 600);
+    background-color: $white;
+    margin-bottom: 20px;
+  }
+}
+
+.tabs__text {
+  @include fields();
+  @include font(16px, 28px, 400);
+  width: 370px;
+  color: rgba($navy, 0.7);
+  letter-spacing: -0.47px;
+  margin-bottom: 49px;
+
+  @media (max-width: $desktop) {
+    width: auto;
+    margin: 0 auto 18px;
+    text-align: center;
+  }
+
+  @media (max-width: $tablet) {
+    margin: 0 auto 19px;
+  }
+}
+
+.tabs__button {
+  @include button();
+  display: block;
+  min-width: 250px;
+  padding: 30px 35px;
+
+  &:hover {
+    background-color: $accent-hover;
+    transition: $tr;
+  }
+
+  @media (max-width: $desktop) {
+    width: auto;
+    margin: 0 auto;
+    padding: 19px 35px;
+  }
+
+  @media (max-width: $tablet) {
+    width: 288px;
+
+    &:focus,
+    &:active {
+      background-color: $accent-hover;
+    }
+  }
+}
+
+.tabs__feedback {
+  position: absolute;
+  top: 50%;
+  left: 74%;
+  transform: translate(0, -50%);
+
+  @media (max-width: $desktop) {
+    top: 80px;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+
+  @media (max-width: $tablet) {
+    top: 50px;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+}
+
+.tabs__img {
+
+  @media (max-width: $desktop) {
+    min-width: max-content;
+    margin-left: -21px;
+    margin-right: -21px;
+  }
+
+  @media (max-width: $tablet) {
+    margin: 0 -16px;
+    min-width: 320px;
+  }
+}
