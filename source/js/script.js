@@ -64,7 +64,6 @@ try {
   storageEmail = localStorage.getItem('email');
 } catch (err) {
   isStorageSupport = false;
-  console.log(666)
 }
 
 // Купить тур
@@ -123,4 +122,41 @@ window.addEventListener('keydown', function (evt) {
       success.classList.remove('body__modal--active');
     }
   }
+});
+
+
+// Валидация
+
+var phoneLength = 10;
+var mailValue = '@';
+var phone = document.querySelector('#phone');
+var mail = document.querySelector('#email');
+
+phone.addEventListener('input', function () {
+  var valuePhone = phone.value.length;
+
+  if (valuePhone < phoneLength) {
+    phone.classList.add('form__input--invalid');
+    phone.setCustomValidity('Ещё' + ' ' + (phoneLength - valuePhone) + ' ' + 'симв.');
+  } else if (valuePhone > phoneLength) {
+    phone.classList.add('form__input--invalid');
+    phone.setCustomValidity(`Данные не верны`);
+  } else {
+    phone.classList.remove('form__input--invalid');
+    phone.setCustomValidity(``);
+  }
+  phone.reportValidity();
+});
+
+
+mail.addEventListener('input', function () {
+
+  if (mail.value.indexOf(mailValue) === -1) {
+    mail.classList.add('form__input--invalid');
+    mail.setCustomValidity('Не хватает @');
+  } else {
+    mail.classList.remove('form__input--invalid');
+    mail.setCustomValidity(``);
+  }
+  mail.reportValidity();
 });

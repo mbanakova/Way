@@ -42,7 +42,7 @@
   @include font(18px, 32px, 600);
   margin-bottom: 20px;
 
-    @media (max-width: $tablet) {
+  @media (max-width: $tablet) {
     text-align: center;
   }
 }
@@ -73,6 +73,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  &:hover {
+    color: $accent-hover;
+    transition: $tr;
+  }
 
   @media (max-width: $desktop) {
     @include font(16px, 32px, 400);
@@ -112,7 +117,6 @@
 }
 
 .footer__icon {
-
   &--envelope {
     margin-right: 13px;
   }
@@ -123,7 +127,6 @@
   }
 
   @media (max-width: $desktop) {
-
     &--envelope {
       width: 26px;
       height: 20px;

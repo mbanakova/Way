@@ -11,7 +11,7 @@ var csso = require('gulp-csso');
 var rename = require('gulp-rename');
 var imagemin = require('gulp-imagemin');
 var webp = require('gulp-webp');
-var svgstore = require('gulp-svgstore')
+var svgstore = require('gulp-svgstore');
 var posthtml = require('gulp-posthtml');
 var include = require('posthtml-include');
 var del = require('del');
@@ -21,7 +21,7 @@ gulp.task('css', function () {
       .pipe(plumber())
       .pipe(sourcemap.init())
       .pipe(sass())
-      .pipe(postcss([ autoprefixer() ]))
+      .pipe(postcss([autoprefixer()]))
       .pipe(csso())
       .pipe(rename('style.min.css'))
       .pipe(sourcemap.write('.'))
@@ -56,14 +56,14 @@ gulp.task('images', function () {
         imagemin.svgo()
       ]))
 
-      .pipe(gulp.dest('source/img'));
+      .pipe(gulp.dest('build/img'));
 
 });
 
 gulp.task('webp', function () {
   return gulp.src('source/img/**/*.{png,jpg}')
       .pipe(webp({quality: 90}))
-      .pipe(gulp.dest('source/img'));
+      .pipe(gulp.dest('build/img'));
 });
 
 gulp.task('sprite', function () {
